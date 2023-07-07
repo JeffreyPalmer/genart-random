@@ -3,4 +3,4 @@
 *.log
 tmp/
 node_modules/
-lib/
+dist/

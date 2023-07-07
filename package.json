@@ -1,42 +1,43 @@
 {
-  "name": "@jeffpalmer/genart-random",
-  "version": "0.1.0",
-  "description": "genart-random provides a safe way to use deterministic random number generators across generative art platforms.",
-  "type": "module",
-  "exports": "./lib/index.js",
-  "engines": {
-    "node": ">=14.16"
-  },
-  "types": "lib/index.d.ts",
-  "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JeffreyPalmer/genart-random.git"
-  },
-  "keywords": [
-    "generative",
-    "genart",
-    "creativecoding",
-    "platform",
-    "abstraction"
-  ],
-  "author": "Jeff Palmer <jeffrey.palmer@acm.org>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/JeffreyPalmer/genart-random/issues"
-  },
-  "homepage": "https://github.com/JeffreyPalmer/genart-random#readme",
-  "devDependencies": {
-    "@tsconfig/recommended": "^1.0.1",
-    "prettier": "^2.7.1",
-    "typescript": "^4.8.2"
-  },
-  "dependencies": {
-    "@thi.ng/arrays": "^2.5.13",
-    "@thi.ng/random": "^3.4.2",
-    "simplex-noise": "^4.0.1"
-  }
+    "name": "@jeffpalmer/genart-random",
+    "version": "0.1.0",
+    "description": "genart-random provides a safe way to use deterministic random number generators across generative art platforms.",
+    "type": "module",
+    "exports": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "engines": {
+        "node": ">=16"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "clean": "rimraf dist",
+        "prebuild": "$npm_execpath run clean",
+        "build": "tsc",
+        "prepack": "$npm_execpath run build",
+        "preversion": "$npm_execpath run build",
+        "postversion": "git push --follow-tags"
+    },
+    "files": ["dist", "src"],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JeffreyPalmer/genart-random.git"
+    },
+    "keywords": ["generative", "genart", "creativecoding", "platform", "abstraction"],
+    "author": "Jeff Palmer <jeffrey.palmer@acm.org>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/JeffreyPalmer/genart-random/issues"
+    },
+    "homepage": "https://github.com/JeffreyPalmer/genart-random#readme",
+    "devDependencies": {
+        "@tsconfig/recommended": "^1.0.1",
+        "prettier": "^2.7.1",
+        "rimraf": "^5.0.1",
+        "typescript": "^4.8.2"
+    },
+    "dependencies": {
+        "@thi.ng/arrays": "^2.5.13",
+        "@thi.ng/random": "^3.4.2",
+        "simplex-noise": "^4.0.1"
+    }
 }

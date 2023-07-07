@@ -2,7 +2,7 @@
 //
 // This is a simple wrapper over a bunch of thi.ng functions so I don't accidentally forget to pass the RNG
 //
-import type { GenArtPlatform } from '@jeffpalmer/genart-platforms'
+import type { Seed } from '@jeffpalmer/genart-platforms'
 import type { Fn0 } from '@thi.ng/api'
 import * as thingRandom from '@thi.ng/random'
 import * as thingArrays from '@thi.ng/arrays'
@@ -11,15 +11,16 @@ import * as simplexNoise from 'simplex-noise'
 // This needs to be parameterized by the GenArtPlatform
 
 var RNG: thingRandom.IRandom
-var PLATFORM: GenArtPlatform
+var SEED: Seed
 
-export function initialize(platform: GenArtPlatform) {
-    PLATFORM = platform
-    RNG = new thingRandom.SFC32(PLATFORM.seed())
+export function initialize(seed: Seed) {
+    // PLATFORM = platform
+    SEED = seed
+    RNG = new thingRandom.SFC32(SEED)
 }
 
 export function reset() {
-    RNG = new thingRandom.SFC32(PLATFORM.seed())
+    RNG = new thingRandom.SFC32(SEED)
 }
 
 export function float(max: number = 1.0) {
