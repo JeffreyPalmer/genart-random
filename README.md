@@ -1,7 +1,7 @@
-# @jeffpalmer/genart-platforms
+# @jeffpalmer/genart-random
 
-This is an abstraction layer that insulates my generative art code from platform specifics. 
+This provides consolidated random number generation tools that ensure there will be no accidental
+usage of the system random number generator. It wraps (thi.ng/random)[https://thi.ng/random] and
+(simplex-noise)[https://github.com/jwagner/simplex-noise.js].
 
-This is intended to be used in conjunction with @jeffpalmer/genart-random, which provides random
-number generation tools that ensure there will be no accidental usage of the system random number
-generator.
+I made this because I learned the hard way that I needed it.
