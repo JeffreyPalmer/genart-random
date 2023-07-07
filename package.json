@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@thi.ng/arrays": "^2.5.13",
-    "@thi.ng/random": "^3.4.2"
+    "@thi.ng/random": "^3.4.2",
+    "simplex-noise": "^4.0.1"
   }
 }

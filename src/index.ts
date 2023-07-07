@@ -4,9 +4,9 @@
 //
 import type { GenArtPlatform } from '@jeffpalmer/genart-platforms'
 import type { Fn0 } from '@thi.ng/api'
-
 import * as thingRandom from '@thi.ng/random'
 import * as thingArrays from '@thi.ng/arrays'
+import * as simplexNoise from 'simplex-noise'
 
 // This needs to be parameterized by the GenArtPlatform
 
@@ -86,4 +86,16 @@ export function weightedRandom<T>(choices: T[], weights?: ArrayLike<number>) {
 
 export function weightedRandomKey<T extends Record<string, number>>(choices: T): Fn0<keyof T> {
     return thingRandom.weightedRandomKey(choices, RNG)
+}
+
+export function createNoise2D() {
+    return simplexNoise.createNoise2D(() => float())
+}
+
+export function createNoise3D() {
+    return simplexNoise.createNoise3D(() => float())
+}
+
+export function createNoise4D() {
+    return simplexNoise.createNoise4D(() => float())
 }
