@@ -19,6 +19,11 @@ export function initialize(seed: Seed) {
     RNG = new thingRandom.SFC32(SEED)
 }
 
+// Escape hatch to allow the RNG to be passed to other functions not yet wrapped by this library
+export function rng() {
+    return RNG
+}
+
 export function reset() {
     RNG = new thingRandom.SFC32(SEED)
 }
