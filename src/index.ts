@@ -54,6 +54,10 @@ export function normMinMax(min: number, max: number) {
     return RNG.normMinMax(min, max)
 }
 
+export function probability(p:number) {
+    return RNG.probability(p)
+}
+
 export function fairCoin() {
     return thingRandom.fairCoin(RNG)
 }
