@@ -1,6 +1,6 @@
 {
     "name": "@jeffpalmer/genart-random",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "description": "genart-random provides a safe way to use deterministic random number generators across generative art platforms.",
     "type": "module",
     "exports": "./dist/index.js",
@@ -40,9 +40,9 @@
     "homepage": "https://github.com/JeffreyPalmer/genart-random#readme",
     "devDependencies": {
         "@tsconfig/recommended": "^1.0.1",
-        "prettier": "3.0.3",
+        "prettier": "3.1.1",
         "rimraf": "^5.0.1",
-        "typescript": "5.2.2"
+        "typescript": "5.3.3"
     },
     "dependencies": {
         "@thi.ng/arrays": "^2.5.13",

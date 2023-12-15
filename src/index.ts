@@ -2,7 +2,6 @@
 //
 // This is a simple wrapper over a bunch of thi.ng functions so I don't accidentally forget to pass the RNG
 //
-import type { Seed } from '@jeffpalmer/genart-platforms'
 import type { Fn0 } from '@thi.ng/api'
 import * as thingRandom from '@thi.ng/random'
 import * as thingArrays from '@thi.ng/arrays'
@@ -10,13 +9,14 @@ import * as simplexNoise from 'simplex-noise'
 
 // This needs to be parameterized by the GenArtPlatform
 
-var RNG: thingRandom.IRandom
-var SEED: Seed
+export interface ResettableRandom extends thingRandom.IRandom {
+    reset():void
+}
 
-export function initialize(seed: Seed) {
-    // PLATFORM = platform
-    SEED = seed
-    RNG = new thingRandom.SFC32(SEED)
+var RNG: ResettableRandom
+
+export function initialize(rng:ResettableRandom) {
+    RNG = rng
 }
 
 // Escape hatch to allow the RNG to be passed to other functions not yet wrapped by this library
@@ -25,7 +25,8 @@ export function rng() {
 }
 
 export function reset() {
-    RNG = new thingRandom.SFC32(SEED)
+    // RNG = new thingRandom.SFC32(SEED)
+    RNG.reset()
 }
 
 export function float(max: number = 1.0) {
@@ -99,13 +100,13 @@ export function weightedRandomKey<T extends Record<string, number>>(choices: T):
 }
 
 export function createNoise2D() {
-    return simplexNoise.createNoise2D(() => float())
+    return simplexNoise.createNoise2D(float)
 }
 
 export function createNoise3D() {
-    return simplexNoise.createNoise3D(() => float())
+    return simplexNoise.createNoise3D(float)
 }
 
 export function createNoise4D() {
-    return simplexNoise.createNoise4D(() => float())
+    return simplexNoise.createNoise4D(float)
 }
